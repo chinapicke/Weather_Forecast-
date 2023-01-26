@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid{
+    background-color: grey;
+}
+
+#search-button{
+    border-color: black;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#cityButtons{
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
