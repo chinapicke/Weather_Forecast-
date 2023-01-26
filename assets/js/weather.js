@@ -1,5 +1,7 @@
 var searchCity = []
 var history = $('#history')
+// Moment JS to display the current date next to the search city 
+var todayDate = moment().format(' (D/M/YYYY)');
 
 // Renders cityName onto page once button clicked
 $('#search-button').on('click', function (e) {
@@ -50,10 +52,13 @@ function cityAPI(){
         var city = response.name;
         var wind = response.wind.speed;
         var humidity = response.main.humidity;
-        $('#city').text('City: ' + city);
-        $('#temp').text('Temperature: ' + tempCalc.toFixed(2));
-        $('#wind').text('Wind: ' + wind);
-        $('#humidity').text('Humidity: ' + humidity);
+        var icon = response.weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" +icon +".png"
+        $('#city').text('City: ' + city + todayDate );
+        $('#icon').attr('src', iconUrl);
+        $('#temp').text('Temperature: ' + tempCalc.toFixed(2)+ "°C");
+        $('#wind').text('Wind: ' + wind + "KPH");
+        $('#humidity').text('Humidity: ' + humidity + "%");
         }
     // })
 // })
