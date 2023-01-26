@@ -3,9 +3,6 @@ body{
     padding: 0;
 }
 
-.container-fluid{
-    background-color: grey;
-}
 
 #search-button{
     border-color: black;
@@ -14,7 +11,11 @@ body{
     margin-bottom: 20px;
 }
 
-#cityButtons{
-    margin-top: 10px; 
+#cityBtn{
+    border-radius: 5px;
     margin-bottom: 10px;
+}
+
+#today{
+    background-color: yellow;
 }
