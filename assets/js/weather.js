@@ -8,9 +8,11 @@ $('#search-button').on('click', function (e) {
     e.preventDefault()
     var cityName = $('#search-input').val()
     searchCity.push(cityName)
-    cityAPI()
+    // cityAPI()
     clearButtons()
     renderButtons()
+    dates()
+    fiveDayForecast()
     
 })
 
@@ -53,14 +55,42 @@ function cityAPI(){
         var wind = response.wind.speed;
         var humidity = response.main.humidity;
         var icon = response.weather[0].icon;
+        // https://www.youtube.com/watch?v=8R3FtApLdms
         var iconUrl = "http://openweathermap.org/img/wn/" +icon +".png"
+        var iconFormat =$('#icon').attr('src', iconUrl,);
         $('#city').text('City: ' + city + todayDate );
-        $('#icon').attr('src', iconUrl);
         $('#temp').text('Temperature: ' + tempCalc.toFixed(2)+ "°C");
         $('#wind').text('Wind: ' + wind + "KPH");
         $('#humidity').text('Humidity: ' + humidity + "%");
         }
-    // })
-// })
+
     )
+}
+
+function dates(){
+    let tomorrow = moment().add(1,'days');
+    let twoDays = moment().add(2,'days');
+    let threeDays = moment().add(3,'days');
+    let fourDays = moment().add(4,'days');
+    let fiveDays = moment().add(5,'days');
+    $('#tomorrow').text(tomorrow.format(' (D/M/YYYY)'))
+    $('#twoDays').text(twoDays.format(' (D/M/YYYY)'))
+    $('#threeDays').text(threeDays.format(' (D/M/YYYY)'))
+    $('#fourDays').text(fourDays.format(' (D/M/YYYY)'))
+    $('#fiveDays').text(fiveDays.format(' (D/M/YYYY)'))
+}
+
+function fiveDayForecast(){
+    var cityName = $('#search-input').val()
+    var APIKey = "5b045dfac16392eda5cca0b2562f708e";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        // Create CODE HERE to Log the queryURL
+        console.log(queryURL);
+        // Create CODE HERE to log the resulting object
+        console.log(response);
+})
 }

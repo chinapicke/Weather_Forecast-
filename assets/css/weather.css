@@ -17,5 +17,20 @@ body{
 }
 
 #today{
+    border: solid #000;
+    border-width: 2px;
+}
+
+
+#icon{
+    width: 15%;
+}
+
+#row2{
     background-color: yellow;
+}
+
+#fiveDayCard{
+    background-color:#2b344c;
+    color:white;
 }
