@@ -33,4 +33,9 @@ body{
 #fiveDayCard{
     background-color:#2b344c;
     color:white;
+    font-size: 15px;
+}
+
+#iconforecast1,#iconforecast2,#iconforecast3,#iconforecast4,#iconforecast5{
+    width: 50%;
 }
