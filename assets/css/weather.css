@@ -31,7 +31,7 @@ body {
 
 /* added shadow to icon so that it shows up better */
 #icon {
-    width: 30px;
+    width: 40px;
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
