@@ -7,23 +7,31 @@ $('#search-button').on('click', function (e) {
     e.preventDefault()
     var cityName = $('#search-input').val()
     searchCity.push(cityName)
-    cityAPI()
+    cityAPI(cityName)
     clearButtons()
-    renderButtons()
     dates()
-    fiveDayForecast()
+    fiveDayForecast(cityName)
     saveCity()
     showSavedCity()
+    renderButtons()
 })
 
 function renderButtons() {
+    showSavedCity()
     for (var i = 0; i < searchCity.length; i++) {
         console.log(searchCity[i])
         var buttons = $('<button>')
         buttons.attr({ 'id': "cityBtn", 'class': "col-sm-12" })
         buttons.text(searchCity[i])
         $("#history").append(buttons);
-        showSavedCity()
+        // tried to add the getItem storage into the function that loops through new button elements
+        buttons.on('click', function(event){
+            var cityName = $(event.target).text()
+            cityAPI(cityName)
+            dates()
+            fiveDayForecast(cityName)
+        })
+    
     }
 
 }
@@ -35,8 +43,8 @@ function clearButtons() {
 var cityName = $('#search-input').val()
 
 // When user put in town and clicks button, put the city into the link for API
-function cityAPI() {
-    var cityName = $('#search-input').val()
+function cityAPI(cityName) {
+    // var cityName = $('#search-input').val() // grabbed it earlier
     var APIKey = "5b045dfac16392eda5cca0b2562f708e";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
     $.ajax({
@@ -49,11 +57,12 @@ function cityAPI() {
         console.log(response);
         // Current if and else statement not working
         let cityCod = response.cod
-        (console.log(cityCod))
+        console.log(cityCod)
         if (cityCod === '404') {
             return alert('Please input correct city name')
         }
         else {
+            saveCity()
             var tempCalc = response.main.temp - 273.15;
             var city = response.name;
             var wind = response.wind.speed;
@@ -67,6 +76,11 @@ function cityAPI() {
             $('#wind').text('Wind: ' + wind + "KPH");
             $('#humidity').text('Humidity: ' + humidity + "%");
         }
+    })
+    // YYif then fails then catch with run
+    .catch(function(error){
+        console.log(error)
+        return alert('Please input correct city name')
     })
 }
 // Function to display the date on each of the 5 day weather forecast cards
@@ -85,8 +99,7 @@ function dates() {
     $('#fiveDays').text(fiveDays.format(' (D/M/YYYY)'))
 }
 
-function fiveDayForecast() {
-    var cityName = $('#search-input').val()
+function fiveDayForecast(cityName) {
     var APIKey = "5b045dfac16392eda5cca0b2562f708e";
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey;
     $.ajax({
@@ -104,7 +117,7 @@ function fiveDayForecast() {
         for (i = 1; i <= 5; i++) {
             // console.log(i)
             // console.log(forecastList[i*6].main.temp)
-            var temp = forecastList[i*6].main.temp
+            var temp = forecastList[i*6].main.temp - 273.15
             var wind = forecastList[i*6].wind.speed
             var humidity= forecastList[i*6].main.humidity
             var icon = forecastList[i*6].weather[0].icon
@@ -113,7 +126,7 @@ function fiveDayForecast() {
         // //         // console.log(forecastList[i])
             // var cards = $('.fiveDay')
         // //     //     console.log(JSON.stringify(response.list.dx_txt))
-            var tempCalc = $('#tempforecast'+[i]).text('Temp : ' + temp + ' °C'); 
+            var tempCalc = $('#tempforecast'+[i]).text('Temp : ' + temp.toFixed(2) + ' °C'); 
             var windEl = $('#windforecast'+[i]).text('Wind speed : ' + wind + 'KPH'); 
             var humidityEl = $('#humidityforecast'+[i]).text('Humidity : ' + humidity + ' %'); 
             var iconUrl = "http://openweathermap.org/img/wn/" + icon + ".png"
@@ -143,12 +156,16 @@ function fiveDayForecast() {
 )
 }
 
+
 function saveCity(){
     localStorage.setItem("searchCity", JSON.stringify(searchCity)); //saves city input to local storage 
 }
 
+// Saving to local storage but not displaying the city button once refreshed
 function showSavedCity(){
-    var searchCity = JSON.parse(localStorage.getItem('searchCity'));
+    searchCity = JSON.parse(localStorage.getItem('searchCity')) || [];
 }
-
+renderButtons()
 // ?how to stop the input returning the same input/repeating itself 
+// Unable to save the weather to city on button, will also need to clear it once a new city button has been clicked
+// if/else statement for response.cod not functioning
