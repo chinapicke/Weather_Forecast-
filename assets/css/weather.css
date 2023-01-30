@@ -14,28 +14,36 @@ body{
 #cityBtn{
     border-radius: 5px;
     margin-bottom: 10px;
+    border-color: lightgrey;
+    background-color: lightgrey;
 }
 
 #today{
     border: solid #000;
-    border-width: 2px;
+    border-width: 1px;
 }
 
-
+/* added shadow to icon so that it shows up better */
 #icon{
-    width: 15%;
-}
-
-#row2{
-    background-color: yellow;
+    width: 5%;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
 #fiveDayCard{
     background-color:#2b344c;
     color:white;
     font-size: 15px;
+    font-weight:400;
 }
 
-#iconforecast1,#iconforecast2,#iconforecast3,#iconforecast4,#iconforecast5{
-    width: 50%;
+h3{
+    display: inline-block;
+}
+
+h5{
+    font-size: 20px;
+}
+
+.icons{
+    width: 40%;
 }
