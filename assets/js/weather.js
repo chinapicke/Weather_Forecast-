@@ -90,7 +90,7 @@ function cityAPI(cityName) {
             var iconUrl = "http://openweathermap.org/img/wn/" + icon + ".png"
             // Set the attribute of the iconUrl so that it shows the correct icon in the icon div
             var iconFormat = $('#icon').attr('src', iconUrl,);
-            $('#city').text('City: ' + city + todayDate);
+            $('#city').text( city + todayDate);
             // toFixed to reduce it to 2 decimal point
             $('#temp').text('Temperature: ' + tempCalc.toFixed(2) + "°C");
             $('#wind').text('Wind: ' + wind + "KPH");
@@ -112,11 +112,11 @@ function dates() {
     let fourDays = moment().add(4, 'days');
     let fiveDays = moment().add(5, 'days');
     // Using text to print it onto the correct days card, need to format it so that it matches the current date format
-    $('#tomorrow').text(tomorrow.format(' (D/M/YYYY)'))
-    $('#twoDays').text(twoDays.format(' (D/M/YYYY)'))
-    $('#threeDays').text(threeDays.format(' (D/M/YYYY)'))
-    $('#fourDays').text(fourDays.format(' (D/M/YYYY)'))
-    $('#fiveDays').text(fiveDays.format(' (D/M/YYYY)'))
+    $('#tomorrow').text(tomorrow.format(' D/M/YYYY'))
+    $('#twoDays').text(twoDays.format(' D/M/YYYY'))
+    $('#threeDays').text(threeDays.format(' D/M/YYYY'))
+    $('#fourDays').text(fourDays.format(' D/M/YYYY'))
+    $('#fiveDays').text(fiveDays.format(' D/M/YYYY'))
 }
 
 function fiveDayForecast(cityName) {
@@ -143,9 +143,9 @@ function fiveDayForecast(cityName) {
             var humidity= forecastList[i*6].main.humidity
             var icon = forecastList[i*6].weather[0].icon
             // number attached to end of div in HTML made it easier to loop through and show the text that I wanted to on the page
-            var tempCalc = $('#tempforecast'+[i]).text('Temp : ' + temp.toFixed(2) + ' °C'); 
-            var windEl = $('#windforecast'+[i]).text('Wind speed : ' + wind + 'KPH'); 
-            var humidityEl = $('#humidityforecast'+[i]).text('Humidity : ' + humidity + ' %'); 
+            var tempCalc = $('#tempforecast'+[i]).text('Temp: ' + temp.toFixed(2) + ' °C'); 
+            var windEl = $('#windforecast'+[i]).text('Wind speed: ' + wind + 'KPH'); 
+            var humidityEl = $('#humidityforecast'+[i]).text('Humidity: ' + humidity + ' %'); 
             var iconUrl = "http://openweathermap.org/img/wn/" + icon + ".png"
             var iconFormat = $('#iconforecast'+[i]).attr('src', iconUrl)
 

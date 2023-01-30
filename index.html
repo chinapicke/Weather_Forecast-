@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <header class="container-fluid text-center text-white bg-dark p-2 weather-header">
+  <header class="container-fluid text-center text-white p-2 weather-header">
     <h1>Weather Dashboard</h1>
   </header>
 
@@ -30,7 +30,7 @@
               <input class="form-input weather-search col-lg-12" type="text" id="search-input" placeholder="London"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
               <!-- Submit button for the user -->
-                <button type="submit" class="btn search-button col-lg-12" id="search-button" aria-label="submit search">
+                <button type="submit" class="btn search-button btn-block btn-sm btn-primary" id="search-button" aria-label="submit search">
                   Search
                 </button>
                 <hr class="hr weather-hr"/>
@@ -42,22 +42,23 @@
         <div class="list-group" id="history"></div>
       </div>
       <!-- Right side of page  -->
-      <div class="col-lg-9 pb-3">
+      <div class="col-lg-9 ">
         <section id="today" class="mt-3" role="region" aria-live="polite">
-          <h3 id="city"></h3>
-          <img id="icon" src="">
-          <div id="temp"></div>
-          <div id="wind"></div>
-          <div id="humidity"></div>
+          <h3 id="city" class="currentDay"></h3>
+          <img id="icon" class="currentDay" src="">
+          <div id="temp" class="currentDay""></div>
+          <div id="wind" class="currentDay"> </div>
+          <div id="humidity" class="currentDay"></div>
         </section>
       <div class="col-lg-12">
-        <h4>5 Day Forecast<h4>
+        <h4>5 Day Forecast:<h4>
         <section id="forecast" class="row mt-3" role="region" aria-live="polite">
           <!-- Create cards for the 5 day forecast  -->
           <!-- col-sm6 col-md-6 col-lg-2 col-xl-2 mb-2 -->
           <div class="fiveDay col">
-            <div class="card" id="fiveDayCard">
-              <h4 id="tomorrow"></h4>
+            <!-- Used h-100 so all cards have the same height no matter the length of the text inside -->
+            <div class="card h-100" id="fiveDayCard">
+              <h5 id="tomorrow"></h5>
               <!-- Divs ended in numbers so that can be looped through with javascript -->
               <img id="iconforecast1" class ='icons'src="">
               <div id="tempforecast1" class="temps"></div>
@@ -66,7 +67,7 @@
             </div>
           </div>
           <div class="fiveDay col">
-            <div class="card" id="fiveDayCard">
+            <div class="card  h-100" id="fiveDayCard">
               <h5 id="twoDays"></h5>
               <img id="iconforecast2" class ='icons'src="">
               <div id="tempforecast2"class="temps"></div>
@@ -75,7 +76,7 @@
             </div>
           </div>
           <div class="fiveDay col ">
-            <div class="card" id="fiveDayCard">
+            <div class="card  h-100" id="fiveDayCard">
               <h5 id="threeDays"></h5>
               <img id="iconforecast3" class ='icons' src="">
               <div id="tempforecast3"class="temps"></div>
@@ -84,7 +85,7 @@
             </div>
           </div>
           <div class="fiveDay col ">
-            <div class="card" id="fiveDayCard">
+            <div class="card  h-100" id="fiveDayCard">
               <h5 id="fourDays"></h5>
               <img id="iconforecast4" class ='icons'src="">
               <div id="tempforecast4"class="temps"></div>
@@ -93,7 +94,7 @@
             </div>
           </div>
           <div class="fiveDay col">
-            <div class="card" id="fiveDayCard">
+            <div class="card  h-100" id="fiveDayCard">
               <h5 id="fiveDays"></h5>
               <img id="iconforecast5" class ='icons' src="">
               <div id="tempforecast5" class="temps"></div>

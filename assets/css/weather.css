@@ -1,49 +1,74 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-
-#search-button{
-    border-color: black;
-    background-color: white;
-    margin-top: 10px;
-    margin-bottom: 20px;
+.weather-header{
+    background-image: linear-gradient(to right, blue , black);
 }
 
-#cityBtn{
+#search-button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+#cityBtn {
     border-radius: 5px;
     margin-bottom: 10px;
     border-color: lightgrey;
     background-color: lightgrey;
+    font-size: 15px;
 }
 
-#today{
+#today {
     border: solid #000;
     border-width: 1px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
 }
 
 /* added shadow to icon so that it shows up better */
-#icon{
-    width: 5%;
+#icon {
+    width: 6%;
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
-#fiveDayCard{
-    background-color:#2b344c;
-    color:white;
-    font-size: 15px;
-    font-weight:400;
+.currentDay {
+    margin-bottom: 20px;
 }
 
-h3{
+#fiveDayCard {
+    background-color: #2b344c;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+h3 {
     display: inline-block;
 }
 
-h5{
-    font-size: 20px;
+h4 {
+    font-weight: 800;
 }
 
-.icons{
+.icons {
     width: 40%;
 }
+
+.temps,
+.winds,
+.humiditys {
+    margin-bottom: 15px;
+    margin-left: 10px;
+
+}
+
+h5 {
+    font-weight: bolder;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+
