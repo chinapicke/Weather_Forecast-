@@ -11,7 +11,8 @@ Open within web browser. Page is not responsive so it is best to open in normal 
 
 ## Usage
 
-Input city name into the input box. Press 'search' button to help produce the current weather and 5 day forecast. This cities weather will be stored in the button with the cities name. To clear the buttons, it can be done through console, under applicatiob.
+Input city name into the input box. Press 'search' button to help produce the current weather and 5 day forecast. This cities weather will be stored in the button with the cities name. To clear the buttons, it can be done through console, under application.
+![Screenshot 2023-01-30 220654](https://user-images.githubusercontent.com/117565899/215519818-fcc38744-246a-4d5d-9a13-ff12b275b313.png)
 
 ## Credits
 
