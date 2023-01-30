@@ -14,6 +14,7 @@ Open within web browser. Page is not responsive so it is best to open in normal 
 Input city name into the input box. Press 'search' button to help produce the current weather and 5 day forecast. This cities weather will be stored in the button with the cities name. To clear the buttons, it can be done through console, under application.
 ![Screenshot 2023-01-30 220654](https://user-images.githubusercontent.com/117565899/215519818-fcc38744-246a-4d5d-9a13-ff12b275b313.png)
 
+Website link: https://chinapicke.github.io/Weather_Forecast-/
 ## Credits
 
 Used principles from youtube video to help render icon on page from API weather; https://www.youtube.com/watch?v=8R3FtApLdms
